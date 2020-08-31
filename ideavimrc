@@ -1,0 +1,57 @@
+set surround
+set easymotion
+set multiple-cursors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                _
+"         __   _(_)_ __ ___  _ __ ___
+"         \ \ / / | '_ ` _ \| '__/ __|
+"          \ V /| | | | | | | | | (__
+"           \_/ |_|_| |_| |_|_|  \___|
+"
+"  There are many like it, but this one is mine.
+" IDEA VIM EDITION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Marks should go to the column, not just the line. Why isn't this the de
+nnoremap ' `
+let mapleader = ','
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <Leader><space> :nohlsearch<cr>
+
+nnoremap ; :action RecentFiles<cr>
+
+nnoremap <leader>f :action SearchEverywhere<cr>
+nnoremap <leader>a :action FileStructurePopup<cr>
+nmap [<space> O<ESC>j
+nmap ]<space> o<ESC>k
+
+"Make it easier to indent a visual selection several times.
+xnoremap > >gv
+xnoremap < <gv
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Editing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set relativenumber
+set clipboard=unnamedplus
+set number
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set smartcase               " Lets you search for ALL CAPS
+set ignorecase              " Case insensitive
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs and buffers.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set scroll=10
+
+" Easy moving between splits
+nmap <C-j> <C-W><C-J>
+nmap <C-k> <C-W><C-K>
+nmap <C-h> <C-W><C-H>
+nmap <C-l> <C-W><C-L>
