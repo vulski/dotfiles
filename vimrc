@@ -33,6 +33,7 @@ Plug 'SirVer/ultisnips'
 
 Plug 'baverman/vial'
 Plug 'baverman/vial-http'
+nmap <leader><cr> :VialHttp<cr>
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
