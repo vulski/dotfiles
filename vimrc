@@ -35,6 +35,8 @@ Plug 'baverman/vial'
 Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
 
+Plug 'elzr/vim-json'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'aklt/plantuml-syntax'
@@ -114,8 +116,8 @@ Plug 'vimwiki/vimwiki'
 hi link VimwikiHeader1 GruvboxYellowBold
 hi link VimwikiHeader3 GruvboxAquaBold
 
-Plug 'ludovicchabant/vim-gutentags' 
-let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+"Plug 'ludovicchabant/vim-gutentags' 
+"let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
                             \ '*.phar', '*.ini', '*.rst', '*.md',
                             \ '*vendor/*/test*', '*vendor/*/Test*',
                             \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
@@ -198,7 +200,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nmap <A-r> <Plug>(coc-rename)
 
 " Remap for format selected region
 "xmap <leader>f  <Plug>(coc-format-selected)

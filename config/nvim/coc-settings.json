@@ -10,7 +10,7 @@
         "args": ["--stdio"],
         "filetypes": ["php"],
         "initializationOptions": {
-            "storagePath": "/tmp/intelephense"
+          "storagePath": "/tmp/intelephense"
         }
     }
   }
