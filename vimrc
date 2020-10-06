@@ -47,6 +47,17 @@ Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
 Plug 'rayburgemeestre/phpfolding.vim'
 
 " Languages, snippets
+Plug 'vim-test/vim-test'
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+let test#strategy = "neovim"
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+endif
+
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'diepm/vim-php-wrapper' 
 Plug 'tobyS/pdv' 
