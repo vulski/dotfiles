@@ -126,6 +126,7 @@ let NERDTreeShowHidden = 1
 Plug 'vimwiki/vimwiki' 
 hi link VimwikiHeader1 GruvboxYellowBold
 hi link VimwikiHeader3 GruvboxAquaBold
+let g:vimwiki_list = [{'auto_tags': 1}]
 
 "Plug 'ludovicchabant/vim-gutentags' 
 "let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
@@ -159,7 +160,7 @@ set backspace=indent,eol,start " Allow backspace beyond insertion point
 set backspace=indent,eol,start " Allow backspace beyond insertion point
 set infercase               " Completion recognizes capitalization
 
-let autoreadargs={'autoread':1} 
+set autoread
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntax, Language specific, auto completion.
@@ -239,6 +240,9 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
+
+nnoremap <silent> <F5> "=strftime("%m/%d/%y %H:%M:%S")<CR>P
+inoremap <silent> <F5> <C-R>=strftime("%m/%d/%y %H:%M:%S")<CR>
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 "nmap <silent> <C-d> <Plug>(coc-range-select)
