@@ -94,6 +94,7 @@ set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'nanotech/jellybeans.vim'
 Plug 'rakr/vim-one'
 Plug 'ajmwagar/vim-deus'
@@ -123,7 +124,14 @@ nmap \e :NERDTreeToggle<CR><C-w>=
 let NERDTreeHijackNetrw = 0
 let NERDTreeShowHidden = 1
 
+Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki' 
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " automatically update links on read diary
+    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+augroup end
 hi link VimwikiHeader1 GruvboxYellowBold
 hi link VimwikiHeader3 GruvboxAquaBold
 let g:vimwiki_list = [{'auto_tags': 1}]
@@ -411,7 +419,8 @@ vnoremap <space> zf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-colorscheme gruvbox 
+colorscheme PaperColor 
+set background=light
 let g:gruvbox_italic=1
 
 " True color stuff
@@ -422,7 +431,6 @@ set termguicolors
 set laststatus=2 " Always show statusline 
 
 syntax enable 
-set background=dark
 syn keyword cTodo contained TODO FIXME XXX  
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

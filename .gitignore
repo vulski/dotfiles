@@ -1,2 +1,6 @@
 tags
 *.weechatlog
+scripts/datagrip
+scripts/idea
+scripts/phpstorm
+
