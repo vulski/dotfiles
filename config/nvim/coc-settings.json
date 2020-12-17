@@ -1,6 +1,5 @@
 {
   "languageserver": {
-      "codeLens.enable": true,
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
