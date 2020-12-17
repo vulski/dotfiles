@@ -178,7 +178,7 @@ set shortmess+=c
 set signcolumn=yes 
 
 " CoC Garbage 
-" Use <c-space> to trigger completion.
+let g:coc_global_extensions = ['coc-solargraph']
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
@@ -411,7 +411,7 @@ vnoremap <space> zf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-colorscheme gruvbox 
+colorscheme nord 
 let g:gruvbox_italic=1
 
 " True color stuff
