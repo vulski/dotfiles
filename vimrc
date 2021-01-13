@@ -89,19 +89,24 @@ let g:AutoPairsFlyMode = 0
 
 " Visuals
 Plug 'tpope/vim-fugitive' 
-set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'nanotech/jellybeans.vim'
 Plug 'rakr/vim-one'
 Plug 'ajmwagar/vim-deus'
+Plug 'itchyny/lightline.vim'
+Plug 'edkolev/tmuxline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
+      \ }
+set noshowmode
 
 " Searching
-
 Plug 'mileszs/ack.vim' 
-
 Plug 'skwp/greplace.vim' 
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
@@ -123,9 +128,17 @@ nmap \e :NERDTreeToggle<CR><C-w>=
 let NERDTreeHijackNetrw = 0
 let NERDTreeShowHidden = 1
 
+Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki' 
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " automatically update links on read diary
+    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+augroup end
 hi link VimwikiHeader1 GruvboxYellowBold
 hi link VimwikiHeader3 GruvboxAquaBold
+let g:vimwiki_list = [{'auto_tags': 1}]
 
 "Plug 'ludovicchabant/vim-gutentags' 
 "let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
@@ -159,7 +172,7 @@ set backspace=indent,eol,start " Allow backspace beyond insertion point
 set backspace=indent,eol,start " Allow backspace beyond insertion point
 set infercase               " Completion recognizes capitalization
 
-let autoreadargs={'autoread':1} 
+set autoread
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntax, Language specific, auto completion.
@@ -177,7 +190,7 @@ set shortmess+=c
 set signcolumn=yes 
 
 " CoC Garbage 
-" Use <c-space> to trigger completion.
+let g:coc_global_extensions = ['coc-solargraph']
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
@@ -240,6 +253,9 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
+nnoremap <silent> <F5> "=strftime("%m/%d/%y %H:%M:%S")<CR>P
+inoremap <silent> <F5> <C-R>=strftime("%m/%d/%y %H:%M:%S")<CR>
+
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 "nmap <silent> <C-d> <Plug>(coc-range-select)
 "xmap <silent> <C-d> <Plug>(coc-range-select)
@@ -254,7 +270,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
@@ -408,6 +424,7 @@ vnoremap <space> zf
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 colorscheme gruvbox 
+set background=dark
 let g:gruvbox_italic=1
 
 " True color stuff
@@ -415,10 +432,9 @@ let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors 
 
-set laststatus=2 " Always show statusline 
+"set laststatus=2 " Always show statusline 
 
 syntax enable 
-set background=dark
 syn keyword cTodo contained TODO FIXME XXX  
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

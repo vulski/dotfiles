@@ -78,3 +78,7 @@ echo "SET unique_checks=1;SET foreign_key_checks=1;";} | mysql -uroot -ppassword
 function phpunit() {
     (./vendor/bin/phpunit $*)
 }
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
