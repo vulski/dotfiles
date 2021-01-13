@@ -106,7 +106,7 @@ Plug 'skwp/greplace.vim'
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
 nmap ; :Buffers<CR>

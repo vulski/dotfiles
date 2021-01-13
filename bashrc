@@ -78,4 +78,3 @@ echo "SET unique_checks=1;SET foreign_key_checks=1;";} | mysql -uroot -ppassword
 function phpunit() {
     (./vendor/bin/phpunit $*)
 }
-

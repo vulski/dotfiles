@@ -1,3 +1,6 @@
+# terraform
+alias tf='terraform'
+
 #tmux
 alias tm='tmux'
 alias tma='tmux a '
