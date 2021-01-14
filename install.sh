@@ -1,30 +1,36 @@
 #!/bin/sh
-#stolen from the best
+echo -e "--Make sure you are running this from the repo path--\n\n"
+read -p "This will override your config files [Y/n]" -n 1 -r
+echo    # move to a new line
 
-set -e
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    BASE="$(cd "$(dirname "$0")" && pwd)"
+    # All dotfiles
+    for file in `find ${BASE} -maxdepth 1 -not -name '.*' -not -name install.sh -not -name bin -not -name tasks -not -name etc -not -name README.md -not -name LICENSE -type f`; do
+      filename=`basename "$file"`
+      echo "ln -sf $BASE/$filename -> ~/.$filename"
+      ln -sf "$BASE/$filename" ~/.$filename
+    done
 
-BASE="$(cd "$(dirname "$0")" && pwd)"
+    # Neovim
+    rm -rf ~/.config/nvim
+    ln -s ${PWD}/nvim ~/.config/nvim
 
-# Very simple install script
-for file in `find ${BASE} -maxdepth 1 -not -name '.*' -not -name install.sh -not -name bin -not -name tasks -not -name etc -not -name README.md -not -name LICENSE -type f`; do
-    filename=`basename "$file"`
-    echo "ln -sf $BASE/$filename -> ~/.$filename"
-    ln -sf "$BASE/$filename" ~/.$filename
-done
+    # Scripts
+    rm -rf ~/scripts
+    ln -s ${PWD}/scripts ~/scripts
 
-dirs=('$HOME/.config/nvim' '$HOME/scripts' '$HOME/.config/awesome' '$HOME/.config/i3' '$HOME/.ctag.d' '$HOME/bin' '$HOME/.vim' '$HOME/.weechat' '$HOME/wikis/general') 
-for dir in ${dirs[@]}; do
-    rm -rf ${dir}
-    echo rm -rf ${dir}
-    parsed="$(echo $dir | sed 's/$HOME\///g' | sed 's/\.//')"
-    echo "ln -sfn $(PWD)/$parsed ${dir}" 
-    ln -sfn $(PWD)/$parsed ${dir}
-done
-exit
+    # i3
+    rm -rf ~/.config/i3
+    ln -s ${PWD}/config/i3 ~/.config/i3
 
+    # vim
+    rm -rf ~/.vim
+    ln -s ${PWD}/vim ~/.vim
 
-
-touch ~/.secrets
-touch ~/.vimrc_specific
-echo "Puts secrets in ~/.secrets"
-echo "Put .vimrc machine specific settings in .vimrc_specific"
+    touch ~/.secrets
+    touch ~/.vimrc_specific
+    echo "Puts secrets in ~/.secrets"
+    echo "Put .vimrc machine specific settings in .vimrc_specific"
+fi
