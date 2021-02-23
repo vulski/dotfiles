@@ -15,7 +15,7 @@ then
 
     # Neovim
     rm -rf ~/.config/nvim
-    ln -s ${PWD}/nvim ~/.config/nvim
+    ln -s ${PWD}/config/nvim ~/.config/nvim
 
     # Scripts
     rm -rf ~/scripts
