@@ -16,7 +16,7 @@ ZSH_THEME="robbyrussell"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh 
 
@@ -24,7 +24,6 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8 
 
 source ~/.bashrc 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Set Spaceship ZSH as a prompt
@@ -32,3 +31,7 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #prompt spaceship
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -f ~/.zshrc_secret ]; then
+    . ~/.zshrc_secret
+fi

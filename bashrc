@@ -6,9 +6,11 @@ fi
 export EDITOR="nvim" 
 source ~/.secrets
 export PATH=$PATH:/usr/local/go/bin
-export GOPATHV
-export PATH=$PATH:$(go env GOPATH)/bin
-export GOPATH=$(go env GOPATH)
+if [ -x "$(command -v go)" ]; then
+    export GOPATHV
+    export PATH=$PATH:$(go env GOPATH)/bin
+    export GOPATH=$(go env GOPATH)
+fi
 export PATH=$PATH:~/.local/bin
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$PATH:$HOME/scripts" 
@@ -45,7 +47,9 @@ function loadnvm() {
     [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion 
 }
 
-eval $(thefuck --alias)
+if [ -x "$(command -v go)" ]; then
+    eval $(thefuck --alias)
+fi
 
 function gtrack() {
     git checkout master ;
@@ -79,6 +83,9 @@ function phpunit() {
     (./vendor/bin/phpunit $*)
 }
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+if [ -x "$(command -v rbenv)" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
