@@ -144,7 +144,7 @@ set hidden
 set nobackup
 set nowritebackup 
 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300 
+set updatetime=100 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c 
 " always show signcolumns
@@ -155,62 +155,11 @@ inoremap <silent> <F5> <C-R>=strftime("%m/%d/%y %H:%M:%S")<CR>
 
 
 " PHP Specific.  
-let g:vim_php_refactoring_use_default_mapping = 0
-let g:vim_php_refactoring_phpdoc = "pdv#DocumentWithSnip()"
-nnoremap  <Leader>rlv :call PhpRenameLocalVariable()<CR>
-nnoremap  <Leader>rcv :call PhpRenameClassVariable()<CR>
-nnoremap  <Leader>rm :call PhpRenameMethod()<CR>
-nnoremap  <Leader>eu :call PhpExtractUse()<CR>
-vnoremap  <Leader>ec :call PhpExtractConst()<CR>
-nnoremap  <Leader>ep :call PhpExtractClassProperty()<CR>
-" vnoremap  <Leader>em :call PhpExtractMethod()<CR>
-nnoremap  <Leader>np :call PhpCreateProperty()<CR>
-nnoremap  <Leader>du :call PhpDetectUnusedUseStatements()<CR>
-vnoremap  <Leader>== :call PhpAlignAssigns()<CR>
-nnoremap  <Leader>sg :call PhpCreateSettersAndGetters()<CR>
-nnoremap  <Leader>cog :call PhpCreateGetters()<CR>
-nnoremap  <Leader>da :call PhpDocAll()<CR>
-
-autocmd FileType php setlocal omnifunc=phpactor#Complete
-let g:phpactorPhpBin = 'php'
-let g:phpactorBranch = 'master'
-let g:phpactorOmniAutoClassImport = v:true
-let g:phpactorCompletionIgnoreCase = 0
-let g:phpactorOmniError = v:true
-
-" Include use statement
-nmap <Leader>u :call phpactor#UseAdd()<CR> 
-" Invoke the context menu
-nmap <Leader>mm :call phpactor#ContextMenu()<CR> 
-" Invoke the navigation menu
-nmap <Leader>nn :call phpactor#Navigate()<CR> 
-" Goto definition of class or class member under the cursor
-nmap <Leader>o :call phpactor#GotoDefinition()<CR> 
-" Show brief information about the symbol under the cursor
-nmap <Leader>K :call phpactor#Hover()<CR> 
-" Transform the classes in the current file
-nmap <Leader>tt :call phpactor#Transform()<CR> 
-" Generate a new class (replacing the current file)
-nmap <Leader>cc :call phpactor#ClassNew()<CR> 
-" Extract expression (normal mode)
-nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR> 
-" Extract expression from selection
-vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR> 
-" Extract method from selection
-vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR> 
-
 let g:php_cs_fixer_rules = '{"@Symfony": true, "binary_operator_spaces": {"align_double_arrow": true, "align_equals": true}, "ordered_imports":true, "array_syntax": {"syntax": "short"}}'
 let g:php_cs_fixer_config_file = '$PWD/.php_cs.dist' 
 nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>zz
 nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>zz
 
-
-"TODO: Fix these binds >.> 
-nnoremap <buffer> <silent> <Leader>pck :call VphpwDocClosestMethod(0)<CR>
-nnoremap <buffer> <silent> <Leader>cj :call VphpwDocClosestMethod(1)<CR>
-noremap  <buffer> <silent> <Leader>cl :call VphpwAlignDocblock()<CR>
-nnoremap <buffer> <silent> <Leader>cd :call VphpwDeleteEnclosingDocblock()<CR>
-noremap  <buffer> <silent> <Leader>cr :call VphpwResetDocblock()<CR>
 
 let g:pdv_template_dir = $HOME ."/.local/share/nvim/plugged/pdv/templates_snip"
 nnoremap  <leader>dm :call pdv#DocumentWithSnip()<CR> 
@@ -341,6 +290,8 @@ nmap <Leader><space> :nohlsearch<cr>
 
 nmap \x :cclose<cr>
 nmap \g :GitGutterToggle<CR>
+nmap \G :GitGutterLineHighlightsToggle<CR>
+command! Gqf GitGutterQuickFix | copen
 nmap \r :!tmux send-keys -t bottom C-p C-j <CR><CR>
 nmap \z :e! %<CR>
 
