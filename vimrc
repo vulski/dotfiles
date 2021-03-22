@@ -67,7 +67,6 @@ let g:AutoPairsFlyMode = 0
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
-Plug 'edkolev/tmuxline.vim'
 Plug 'itchyny/lightline.vim'
 set noshowmode
 
@@ -387,7 +386,7 @@ vnoremap <space> zf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-colorscheme gruvbox 
+colorscheme nord 
 set background=dark
 let g:gruvbox_italic=1
 
