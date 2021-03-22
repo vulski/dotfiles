@@ -67,8 +67,6 @@ let g:AutoPairsFlyMode = 0
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
-set noshowmode
 
 " Searching
 Plug 'mileszs/ack.vim' 
@@ -391,11 +389,9 @@ set background=dark
 let g:gruvbox_italic=1
 
 " True color stuff
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors 
-
-"set laststatus=2 " Always show statusline 
+if !has('gui_running')
+  set t_Co=256
+endif
 
 syntax enable 
 syn keyword cTodo contained TODO FIXME XXX  
