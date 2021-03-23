@@ -277,7 +277,6 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-inoremap <c-c> <ESC>
 nnoremap <silent> <F2> :set relativenumber!<CR> 
 
 "Make it easier to indent a visual selection several times.  
