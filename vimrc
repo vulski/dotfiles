@@ -30,6 +30,8 @@ let mapleader = ','
 
 call plug#begin('~/.local/share/nvim/plugged') 
 Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger = "<Nop>"
+let g:UltiSnipsListSnippets = "<Nop>"
 
 Plug 'baverman/vial'
 Plug 'baverman/vial-http'
