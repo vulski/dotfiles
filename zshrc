@@ -25,11 +25,6 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8 
 
 source ~/.bashrc 
-#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Set Spaceship ZSH as a prompt
-#autoload -U promptinit; promptinit
-#prompt spaceship
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
