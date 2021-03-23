@@ -17,6 +17,7 @@ ZSH_THEME="robbyrussell"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 plugins=(git zsh-autosuggestions)
+bindkey '^ ' autosuggest-accept
 
 source $ZSH/oh-my-zsh.sh 
 
