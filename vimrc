@@ -335,13 +335,15 @@ set lbr
 set ignorecase              " Case insensitive
 set infercase               " Completion recognizes capitalization
 set linebreak               " Break long lines by word, not char 
-set nowrap
+set wrap
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=syntax
 nnoremap <space> za
 vnoremap <space> zf 
+
+map <F7> gg=G<C-o><C-o>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, Visuals, and Fonts.
@@ -376,8 +378,9 @@ if executable('ag')
       let g:ackprg = 'ag --vimgrep'
 endif 
 
-"nnoremap j gj
-"nnoremap k gk
+" Make it easier to move through wrapped lines.
+nnoremap j gj
+nnoremap k gk
 
 nnoremap <C-w>+ 10<C-w>+
 nnoremap <C-w>- 10<C-w>- 
@@ -423,7 +426,7 @@ nmap <C-l> <C-W><C-L>
 " => Autocmd.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Resize panes when window/terminal gets resize
-autocmd VimResized * :wincmd =
+"autocmd VimResized * :wincmd =
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
