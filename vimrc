@@ -168,6 +168,7 @@ let g:pdv_template_dir = $HOME ."/.local/share/nvim/plugged/pdv/templates_snip"
 nnoremap  <leader>dm :call pdv#DocumentWithSnip()<CR> 
 
 " CoC 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 let g:coc_global_extensions = ['coc-solargraph']
 inoremap <silent><expr> <c-space> coc#refresh()
 
