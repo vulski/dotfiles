@@ -358,7 +358,7 @@ if !has('gui_running')
 endif
 
 syntax enable 
-syn keyword cTodo contained TODO FIXME XXX  
+syn keyword cTodo contained TODO FIXME XXX
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
