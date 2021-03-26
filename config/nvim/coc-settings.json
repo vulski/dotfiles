@@ -22,5 +22,9 @@
     "javascriptreact",
     "json",
     "typescriptreact"
-  ]
+  ],
+  "prettier.tabWidth": 4,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.semi": false
 }
