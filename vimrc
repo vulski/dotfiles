@@ -322,9 +322,9 @@ nnoremap <Leader>Q :qa!<cr>
 
 
 " jk | Escaping!
-inoremap jk <Esc>
-xnoremap jk <Esc>
-cnoremap jk <C-c>
+" inoremap jk <Esc>
+" xnoremap jk <Esc>
+" cnoremap jk <C-c>
 
 " Zoom
 function! s:zoom()
