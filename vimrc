@@ -170,7 +170,8 @@ let g:pdv_template_dir = $HOME ."/.local/share/nvim/plugged/pdv/templates_snip"
 nnoremap  <leader>dm :call pdv#DocumentWithSnip()<CR> 
 
 " CoC 
-let g:coc_global_extensions = ['coc-solargraph']
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph']
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
@@ -574,7 +575,7 @@ if !has('gui_running')
 endif
 
 syntax enable 
-syn keyword cTodo contained TODO FIXME XXX  
+syn keyword cTodo contained TODO FIXME XXX
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
