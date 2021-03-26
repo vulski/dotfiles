@@ -114,7 +114,7 @@ hi link VimwikiHeader3 GruvboxAquaBold
 let g:vimwiki_list = [{'auto_tags': 1}]
 
 Plug 'ludovicchabant/vim-gutentags' 
-let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.json', '*.xml',
                             \ '*.phar', '*.ini', '*.rst', '*.md',
                             \ '*vendor/*/test*', '*vendor/*/Test*',
                             \ '*vendor/*/fixture*', '*vendor/*/Fixture*',

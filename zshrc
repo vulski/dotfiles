@@ -38,3 +38,4 @@ bindkey -v
 
 # Enable reverse search
 bindkey "^R" history-incremental-search-backward
+
