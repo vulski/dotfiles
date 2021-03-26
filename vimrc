@@ -38,6 +38,7 @@ Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-json', 'coc-prettier']
 Plug 'sheerun/vim-polyglot'
 
 " Languages, snippets

@@ -6,12 +6,21 @@
       "filetypes": ["go"]
     },
     "intelephense": {
-        "command": "intelephense",
-        "args": ["--stdio"],
-        "filetypes": ["php"],
-        "initializationOptions": {
-          "storagePath": "/tmp/intelephense"
-        }
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
     }
-  }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescriptreact"
+  ]
 }
