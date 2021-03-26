@@ -92,3 +92,4 @@ fi
 
 
 export PATH="$HOME/.npm-global/bin:$PATH"
+alias docker=podman
