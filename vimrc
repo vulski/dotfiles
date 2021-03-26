@@ -79,13 +79,19 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
-nmap ; :Buffers<CR>
+nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <silent> ;  :Buffers<CR>
+nnoremap <silent> <Leader>L        :Lines<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>F :Tags<CR>
-nmap <Leader>a :BTags<CR>
+nmap <Leader>d :BTags<CR>
 nmap <Leader>A :Ag<CR>
+nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
+xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
 
 Plug 'junegunn/goyo.vim'
+nnoremap <Leader>G :Goyo<CR>
 
 Plug 'tpope/vim-vinegar'
 
@@ -165,13 +171,9 @@ let g:php_cs_fixer_config_file = '$PWD/.php_cs.dist'
 nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>zz
 nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>zz
 
-
-let g:pdv_template_dir = $HOME ."/.local/share/nvim/plugged/pdv/templates_snip"
-nnoremap  <leader>dm :call pdv#DocumentWithSnip()<CR> 
-
 " CoC 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph']
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph', 'coc-emoji', 'coc-tsserver']
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
@@ -510,21 +512,6 @@ function! s:todo() abort
 endfunction
 command! Todo call s:todo()
 
-" ----------------------------------------------------------------------------
-" <Leader>?/! | Google it / Feeling lucky
-" ----------------------------------------------------------------------------
-function! s:goog(pat, lucky)
-  let q = '"'.substitute(a:pat, '["\n]', ' ', 'g').'"'
-  let q = substitute(q, '[[:punct:] ]',
-       \ '\=printf("%%%02X", char2nr(submatch(0)))', 'g')
-  call system(printf('open "https://www.google.com/search?%sq=%s"',
-                   \ a:lucky ? 'btnI&' : '', q))
-endfunction
-
-nnoremap <leader>? :call <SID>goog(expand("<cWORD>"), 0)<cr>
-nnoremap <leader>! :call <SID>goog(expand("<cWORD>"), 1)<cr>
-xnoremap <leader>? "gy:call <SID>goog(@g, 0)<cr>gv
-xnoremap <leader>! "gy:call <SID>goog(@g, 1)<cr>gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing
@@ -575,7 +562,7 @@ if !has('gui_running')
 endif
 
 syntax enable 
-syn keyword cTodo contained TODO FIXME XXX
+syn keyword cTodo contained TODO FIXME XXX TODOs TODOS
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo

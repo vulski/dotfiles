@@ -64,7 +64,6 @@ function gtrack() {
     git checkout master
 }
 
-#TODO
 function sqldump (){
 ssh ubuntu@ip 'set -o pipefail &&
 mysqldump -hhost -uroot -p"pwd \
@@ -73,7 +72,6 @@ mysqldump -hhost -uroot -p"pwd \
 }
 
 
-#TODO
 function sqlimport(){
 pv DBname.sql.gz | { echo "set sql_log_bin=0;SET unique_checks=0;SET foreign_key_checks=0;"; zcat; \
 echo "SET unique_checks=1;SET foreign_key_checks=1;";} | mysql -uroot -ppassword DBname
