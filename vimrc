@@ -38,7 +38,6 @@ Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-json', 'coc-prettier']
 Plug 'sheerun/vim-polyglot'
 
 " Languages, snippets
@@ -170,7 +169,7 @@ nnoremap  <leader>dm :call pdv#DocumentWithSnip()<CR>
 
 " CoC 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-let g:coc_global_extensions = ['coc-solargraph']
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph']
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
