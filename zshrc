@@ -32,10 +32,3 @@ if [ -f ~/.zshrc_secret ]; then
     . ~/.zshrc_secret
 fi
 
-# Vi like 
-bindkey -v
-
-
-# Enable reverse search
-bindkey "^R" history-incremental-search-backward
-
