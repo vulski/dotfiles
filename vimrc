@@ -645,7 +645,8 @@ augroup autosourcing
 augroup END
 
 " Remember info about open buffers on close
-set viminfo^=% 
+"Disabled because it's annoying when you have multiple open sessions
+"set viminfo^=% 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
