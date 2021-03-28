@@ -64,12 +64,13 @@ Plug 'Yggdroot/indentLine' " Show line indenations
 Plug 'tpope/vim-surround'
 
 Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode = 0
+let g:AutoPairsFlyMode = 1
 
 " Visuals
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'ap/vim-css-color'
 
 " Searching
 Plug 'mileszs/ack.vim' 
@@ -101,7 +102,7 @@ nmap \e :NERDTreeToggle<CR><C-w>=
 let NERDTreeHijackNetrw = 0
 let NERDTreeShowHidden = 1
 
-Plug 'mattn/calendar-vim'
+" Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki' 
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
@@ -303,7 +304,7 @@ nmap \r :!tmux send-keys -t bottom C-p C-j <CR><CR>
 nmap \z :e! %<CR>
 
 " Auto change directory to match current file ,cd
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR> 
+" nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR> 
 
 " Move lines up and down with ctrl-alt+j,k
 nnoremap <C-A-j> :m .+1<CR>==
@@ -348,8 +349,8 @@ nnoremap ]l :lnext<cr>zz
 nnoremap [l :lprev<cr>zz
 
 " <tab> / <s-tab> | Circular windows navigation
-nnoremap <tab>   <c-w>w
-nnoremap <S-tab> <c-w>W
+" nnoremap <tab>   <c-w>w
+" nnoremap <S-tab> <c-w>W
 
 nnoremap <leader>c :cclose<bar>lclose<cr>
 
