@@ -110,6 +110,12 @@ let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.json', '*.xml',
                             \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
                             \ '*var/cache*', '*var/log*']
 
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeHighlightCursorline = 0
+"https://superuser.com/questions/1335155/patched-fonts-not-showing-up-on-gnome-terminal#1336614
+"fuck you gnome term devs 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
