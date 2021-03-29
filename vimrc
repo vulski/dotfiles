@@ -59,8 +59,7 @@ let g:AutoPairsFlyMode = 0
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
-" Think this is causing lag
-" Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 
 " Searching
 Plug 'mileszs/ack.vim' 
