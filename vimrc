@@ -18,9 +18,9 @@ let mapleader = ','
 " => Dependencies
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 call plug#begin('~/.local/share/nvim/plugged') 
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger = "<Nop>"
-let g:UltiSnipsListSnippets = "<Nop>"
+"Plug 'SirVer/ultisnips'
+"let g:UltiSnipsExpandTrigger = "<Nop>"
+"let g:UltiSnipsListSnippets = "<Nop>"
 
 Plug 'baverman/vial'
 Plug 'baverman/vial-http'
@@ -53,13 +53,14 @@ Plug 'Yggdroot/indentLine' " Show line indenations
 Plug 'tpope/vim-surround'
 
 Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 
 " Visuals
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
-Plug 'ap/vim-css-color'
+" Think this is causing lag
+" Plug 'ap/vim-css-color'
 
 " Searching
 Plug 'mileszs/ack.vim' 
