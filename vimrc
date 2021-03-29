@@ -1,12 +1,4 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                _
-"         __   _(_)_ __ ___  _ __ ___
-"         \ \ / / | '_ ` _ \| '__/ __|
-"          \ V /| | | | | | | | | (__
-"           \_/ |_|_| |_| |_|_|  \___|
-" 
-"  There are many like it, but this one is mine.
-"
 "  Sections:
 "   -> Dependencies.
 "   -> General.
@@ -25,9 +17,6 @@ let mapleader = ','
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Dependencies
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" Universal Ctags
-" @see https://askubuntu.com/questions/796408/installing-and-using-universal-ctags-instead-of-exuberant-ctags 
-
 call plug#begin('~/.local/share/nvim/plugged') 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger = "<Nop>"
@@ -665,12 +654,9 @@ augroup END
 " Remember info about open buffers on close
 "Disabled because it's annoying when you have multiple open sessions
 "set viminfo^=% 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-
 " Disable annoying beeps and bells.
 set visualbell 
 set noerrorbells
@@ -689,18 +675,11 @@ source ~/.vimrc_specific
 "------------Notes and Tips------------" 
 
 "_______ Searching_______
-" CTRL + r == fzf :Tags
 
-" <Leader>f == fzf :Tag (quick ctags search)
-" CTRL + ], follow into ctag
 " :ts == :tagselect
 " :tn == :tagnext
 " :tp == :tagprevious
 
-" CTRL + 6 == Toggle last and current file
-
-" CTRL + d(down) or u(p) == Scroll up and down
-"
 " :grep -R something ./ 
 " :copen == Quickfix list
 "
@@ -709,44 +688,17 @@ source ~/.vimrc_specific
 " :Greplace, merges those changes above
 " :wa == Write All files
 
-"_____Easy editing________
-" J == brings the below line up to the current line
-" d(elete) or c(hange) or v(isualize) + i(nside) or a(ll)  + t(ag) or {} or [ ' or " etc
-
-" d(elete) or c(hange) or v(isualize) + s(urround) +  t(ag) or {} or [ ' or etc + replace with (this includes tags, e.g. <span style="">)
-
+" XXX
 " [visual mode] + S<CR> (surround with this, including tags)
 
 " CTRL + a == Increment number
 " CTRL + x == Decrement number
 
-" PHP easy editing
-" <Leader>n Auto 'use' namespace PHP class
-
-" * and # -- highlight and search current word, # is previous * is next
-
-
-" {} jump paragraphs, functions
-" 0 go to start of line, normal mode
-" USE d and c MODIFIERS!
-
-" diw d(elete) i(nside) w(ord)
-" Hello List
-" ctL [where cursor is on H]
-" deletes 'Hello '
-
-" x X, backspace, del, in normal mode
-
-" d{ delete paragraph/function
 " d/foo delete foo on next
 " d?food delete foo on previous 
 
-" d15j c10k etc etc
-
 " collapse array/list
 " V:s/,/,\r/g<enter>
-
-" :<up key>
 
 " :{range}normal {command}
 " [range]norm {command}
@@ -754,9 +706,6 @@ source ~/.vimrc_specific
 
 " :read !wget
 ": read !wget https://example.com/some/bullshit/json | python -m json.tool
-
-" F5 =strftime("%m/%d/%y %H:%M:%S") 
-
 
 " [[ go to previous method
 " ]] go to next method
