@@ -74,11 +74,11 @@ nnoremap <silent> ;  :Buffers<CR>
 nnoremap <silent> <Leader>L        :Lines<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>F :Tags<CR>
-nmap <Leader>d :BTags<CR>
+nmap <Leader>a :BTags<CR>
 nmap <Leader>A :Ag<CR>
-nnoremap <silent> <Leader>ag       :Ag <C-R><C-W><CR>
-nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
-xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
+" nnoremap <silent> <Leader>ag       :Ag <C-R><C-W>
+" nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
+" xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
 
 Plug 'junegunn/goyo.vim'
 nnoremap <Leader>G :Goyo<CR>
