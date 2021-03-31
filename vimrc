@@ -64,8 +64,8 @@ Plug 'ap/vim-css-color'
 " Searching
 Plug 'mileszs/ack.vim' 
 Plug 'skwp/greplace.vim' 
-set grepprg=ag
-let g:grep_cmd_opts = '--line-numbers --noheading'
+set grepprg=rg
+" let g:grep_cmd_opts = '--line-numbers --noheading'
 
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
@@ -75,7 +75,7 @@ nnoremap <silent> <Leader>L        :Lines<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>F :Tags<CR>
 nmap <Leader>a :BTags<CR>
-nmap <Leader>A :Ag<CR>
+nmap <Leader>A :Rg<CR>
 " nnoremap <silent> <Leader>ag       :Ag <C-R><C-W>
 " nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
 " xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
