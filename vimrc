@@ -587,14 +587,13 @@ if !has('gui_running')
 endif
 
 syntax enable 
-" syn keyword cTodo contained TODO FIXME XXX TODOS IDEA
+syn keyword   cTodo   contained    TODO FIXME XXX
 augroup vimrc_todo
     au!
-    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|TODOs|IDEA):/
+    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|IDEA):/
           \ containedin=.*Comment,vimCommentTitle
 augroup END
 hi def link MyTodo Todo
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
