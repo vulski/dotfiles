@@ -76,6 +76,10 @@ nmap <Leader>f :Files<CR>
 nmap <Leader>F :Tags<CR>
 nmap <Leader>a :BTags<CR>
 nmap <Leader>A :Rg<CR>
+nmap <Leader>l :BLines<CR>
+nmap <Leader>L :Lines<CR>
+nmap <Leader>g :BCommits<cr>
+" nmap <Leader>G :Commits
 " nnoremap <silent> <Leader>ag       :Ag <C-R><C-W>
 " nnoremap <silent> <Leader>AG       :Ag <C-R><C-A><CR>
 " xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
