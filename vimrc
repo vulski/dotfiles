@@ -299,8 +299,8 @@ nnoremap <silent> <F2> :set relativenumber!<CR>
 xnoremap > >gv
 xnoremap < <gv 
 
-nmap <Leader>ev :e ~/.vimrc<cr> 
-nmap <Leader>es :e ~/.vim/snippets/ 
+nmap <Leader>ev :tabnew ~/.vimrc<cr> 
+nmap <Leader>es :e ~/.vim/snippets/
 nmap <Leader><space> :nohlsearch<cr>
 
 nmap \x :cclose<cr>
@@ -673,6 +673,18 @@ augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
+
+
+cabbrev help tab help
+
+" " Help in new tabs
+" function! s:helptab()
+"   if &buftype == 'help'
+"     wincmd T
+"     nnoremap <buffer> q :q<cr>
+"   endif
+" endfunction
+" autocmd vimrc BufEnter *.txt call s:helptab()
 
 " Remember info about open buffers on close
 "Disabled because it's annoying when you have multiple open sessions
