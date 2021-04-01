@@ -590,7 +590,7 @@ syntax enable
 syn keyword   cTodo   contained    TODO FIXME XXX
 augroup vimrc_todo
     au!
-    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|IDEA):/
+    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|IDEA|TODOs|TODOS):/
           \ containedin=.*Comment,vimCommentTitle
 augroup END
 hi def link MyTodo Todo
