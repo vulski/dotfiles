@@ -119,7 +119,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 let g:NERDTreeSyntaxDisableDefaultExtensions = 1
 let g:NERDTreeSyntaxDisableDefaultExactMatches = 1
 let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
-let g:NERDTreeSyntaxEnabledExtensions = ['php', 'js', 'ts', 'jsx', 'tsx', 'css', 'html', 'json', 'md', 'go'] " enabled extensions with default colors
+let g:NERDTreeSyntaxEnabledExtensions = ['php', 'js', 'ts', 'jsx', 'tsx', 'css', 'html', 'json', 'md', 'go', 'rs'] " enabled extensions with default colors
 let g:NERDTreeSyntaxEnabledExactMatches = ['node_modules', 'favicon.ico', '.env'] " enabled exact matches with default colors
 Plug 'ryanoasis/vim-devicons'
 let g:NERDTreeLimitedSyntax = 1
