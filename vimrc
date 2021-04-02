@@ -22,6 +22,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 "let g:UltiSnipsExpandTrigger = "<Nop>"
 "let g:UltiSnipsListSnippets = "<Nop>"
 
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
+
 Plug 'baverman/vial'
 Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
@@ -119,7 +122,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 let g:NERDTreeSyntaxDisableDefaultExtensions = 1
 let g:NERDTreeSyntaxDisableDefaultExactMatches = 1
 let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
-let g:NERDTreeSyntaxEnabledExtensions = ['php', 'js', 'ts', 'jsx', 'tsx', 'css', 'html', 'json', 'md'] " enabled extensions with default colors
+let g:NERDTreeSyntaxEnabledExtensions = ['php', 'js', 'ts', 'jsx', 'tsx', 'css', 'html', 'json', 'md', 'go'] " enabled extensions with default colors
 let g:NERDTreeSyntaxEnabledExactMatches = ['node_modules', 'favicon.ico', '.env'] " enabled exact matches with default colors
 Plug 'ryanoasis/vim-devicons'
 let g:NERDTreeLimitedSyntax = 1
@@ -128,11 +131,13 @@ let g:NERDTreeHighlightCursorline = 0
 "fuck you gnome term devs 
 call plug#end()
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible                                    
 filetype plugin on
+filetype plugin indent on " whta?
 
 " Marks should go to the column, not just the line. Why isn't this the de
 nnoremap ' ` 
@@ -179,7 +184,7 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>zz
 
 " CoC 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph', 'coc-emoji', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph', 'coc-emoji', 'coc-tsserver', 'coc-rls']
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
