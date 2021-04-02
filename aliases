@@ -146,3 +146,4 @@ alias badge="tput bel"
 
 alias vim="nvim"
 alias vi="nvim"
+alias ts="npx ts-node"

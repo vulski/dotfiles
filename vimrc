@@ -42,7 +42,7 @@ if has('nvim')
 endif
 
 " Go.
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 
 " Editing
 Plug 'tpope/vim-commentary'

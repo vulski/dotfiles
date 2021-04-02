@@ -22,7 +22,8 @@
         "javascriptreact",
         "json",
         "typescriptreact",
-        "rust"
+        "rust",
+        "go"
     ],
     "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
