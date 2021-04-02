@@ -22,9 +22,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 "let g:UltiSnipsExpandTrigger = "<Nop>"
 "let g:UltiSnipsListSnippets = "<Nop>"
 
-Plug 'rust-lang/rust.vim'
-let g:rustfmt_autosave = 1
-
 Plug 'baverman/vial'
 Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
@@ -137,7 +134,6 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible                                    
 filetype plugin on
-filetype plugin indent on " whta?
 
 " Marks should go to the column, not just the line. Why isn't this the de
 nnoremap ' ` 

@@ -3,33 +3,56 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 plugins=(git zsh-autosuggestions)
-
 source $ZSH/oh-my-zsh.sh 
-
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8 
 
-source ~/.bashrc 
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+export EDITOR="nvim" 
+source ~/.secrets
+
+export PATH=$PATH:/usr/local/go/bin
+if [ -x "$(command -v go)" ]; then
+    export GOPATHV
+    export PATH=$PATH:$(go env GOPATH)/bin
+    export GOPATH=$(go env GOPATH)
+fi
+export PATH=$PATH:~/.local/bin
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="$PATH:$HOME/scripts" 
+export GIT_TERMINAL_PROMPT=1
+
+if [ -d "/home/linuxbrew/.linuxbrew/bin/brew shellenv" ]; then 
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) 
+fi
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -f ~/.zshrc_secret ]; then
-    . ~/.zshrc_secret
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+if [ -d $HOME/.cargo/env ]; then
+    source $HOME/.cargo/env
+    export PATH="$HOME/.cargo/bin:$PATH" 
 fi
 
-# Something is overriding it in .bashrc
-bindkey '^ ' autosuggest-accept
+if [ -x "$(command -v go)" ]; then
+    eval $(thefuck --alias)
+fi
+
+if [ -x "$(command -v rbenv)" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
+
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+bindkey '^ ' autosuggest-accept # Use ctrl space for zsh autocomplete
+

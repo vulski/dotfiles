@@ -1,0 +1,7 @@
+[user]
+	name = vulski
+	email = 70493317+vulski@users.noreply.github.com
+[core]
+	excludesfile = /home/vulski/.gitignore_global
+[pull]
+	rebase = false
