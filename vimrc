@@ -567,7 +567,7 @@ map <F7> gg=G<C-o><C-o>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-colorscheme gruvbox
+colorscheme nord
 set background=dark
 let g:gruvbox_italic=1
 
