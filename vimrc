@@ -42,7 +42,10 @@ if has('nvim')
 endif
 
 " Go.
-"Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
+
+" Plug 'rust-lang/rust.vim'
+" let g:rustfmt_autosave = 1
 
 " Editing
 Plug 'tpope/vim-commentary'
@@ -53,19 +56,13 @@ Plug 'Yggdroot/indentLine' " Show line indenations
 Plug 'tpope/vim-surround'
 
 Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode = 0
+let g:AutoPairsFlyMode = 0 "0 is default
 
 " Visuals
 Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
-
-" Searching
-Plug 'mileszs/ack.vim' 
-Plug 'skwp/greplace.vim' 
-set grepprg=rg
-" let g:grep_cmd_opts = '--line-numbers --noheading'
 
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
@@ -95,7 +92,7 @@ nmap \e :NERDTreeToggle<CR><C-w>=
 let NERDTreeHijackNetrw = 0
 let NERDTreeShowHidden = 1
 
-" Plug 'mattn/calendar-vim'
+Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki' 
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
@@ -125,7 +122,6 @@ Plug 'ryanoasis/vim-devicons'
 let g:NERDTreeLimitedSyntax = 1
 let g:NERDTreeHighlightCursorline = 0
 "https://superuser.com/questions/1335155/patched-fonts-not-showing-up-on-gnome-terminal#1336614
-"fuck you gnome term devs 
 call plug#end()
 
 
@@ -170,13 +166,6 @@ set signcolumn=yes
 
 nnoremap <silent> <F5> "=strftime("%m/%d/%y %H:%M:%S")<CR>P
 inoremap <silent> <F5> <C-R>=strftime("%m/%d/%y %H:%M:%S")<CR>
-
-
-" PHP Specific.  
-let g:php_cs_fixer_rules = '{"@Symfony": true, "binary_operator_spaces": {"align_double_arrow": true, "align_equals": true}, "ordered_imports":true, "array_syntax": {"syntax": "short"}}'
-let g:php_cs_fixer_config_file = '$PWD/.php_cs.dist' 
-nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>zz
-nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>zz
 
 " CoC 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -259,7 +248,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
@@ -326,7 +315,7 @@ vnoremap <C-A-k> :m '<-2<CR>gv=gv
 inoremap <C-Q>     <esc>:q<cr>
 nnoremap <C-Q>     :q<cr>
 vnoremap <C-Q>     <esc>
-nnoremap <Leader>q :q<cr>
+" nnoremap <Leader>q :q<cr>
 nnoremap <Leader>Q :qa!<cr>
 
 
