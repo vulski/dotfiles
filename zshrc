@@ -56,3 +56,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 
 bindkey '^ ' autosuggest-accept # Use ctrl space for zsh autocomplete
 
+fpath+=${ZDOTDIR:-~}/.zsh_functions

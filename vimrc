@@ -567,7 +567,7 @@ map <F7> gg=G<C-o><C-o>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-colorscheme nord
+colorscheme gruvbox
 set background=dark
 let g:gruvbox_italic=1
 
@@ -697,6 +697,8 @@ set synmaxcol=500
 " An additional vimrc settings file specific to the machine i'm working on.
 source ~/.vimrc_specific
 
+
+hi Normal guibg=NONE ctermbg=NONE
 "------------Notes and Tips------------" 
 
 "_______ Searching_______

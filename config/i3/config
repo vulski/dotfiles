@@ -20,7 +20,7 @@ new_window 1pixel
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -167,3 +167,9 @@ bindsym $mod+backslash exec --no-startup-id pactl set-sink-mute 0 toggle # mute 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
+# MATE
+exec --no-startup-id mate-settings-daemon
+exec --no-startup-id nm-applet
+exec --no-startup-id mate-power-manager 
+exec --no-startup-id blueman-applet
+exec --no-startup-id compton 
