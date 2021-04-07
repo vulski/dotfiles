@@ -75,7 +75,7 @@ window:
   startup_mode: Maximized
 
   # Window title
-  #title: Alacritty
+  title: hankermen
 
   # Allow terminal applications to change Alacritty's window title.
   #dynamic_title: true
@@ -399,7 +399,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+background_opacity: 0.94
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -740,7 +740,10 @@ background_opacity: 0.95
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
+  - { key: F11, action: ToggleFullscreen }
+  - { key: N, mods: Shift|Control, action: SpawnNewInstance }
+  # - { key: F11, mods: Shift, action: Maximized }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
