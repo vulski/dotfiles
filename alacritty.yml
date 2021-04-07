@@ -150,7 +150,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 20.0
+  size: 18.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -475,7 +475,7 @@ background_opacity: 1
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-#mouse:
+mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -485,7 +485,7 @@ background_opacity: 1
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  hide_when_typing: true
 
   #url:
     # URL launcher
@@ -749,20 +749,21 @@ key_bindings:
   - { key: K,        mods: Alt,     chars: "\x1bk"                       }
   - { key: H,        mods: Alt,     chars: "\x1bh"                       }
   - { key: L,        mods: Alt,     chars: "\x1bl"                       }
-  - { key: Up,       mods: Alt,     chars: "\x1b[1;5A"                   }
-  - { key: Down,     mods: Alt,     chars: "\x1b[1;5B"                   }
-  - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
-  - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
-  - { key: Key0,     mods: Alt,     chars: "º"                           }
-  - { key: Key1,     mods: Alt,     chars: "¡"                           }
-  - { key: Key2,     mods: Alt,     chars: "€"                           }
-  - { key: Key3,     mods: Alt,     chars: "#"                           }
-  - { key: Key4,     mods: Alt,     chars: "¢"                           }
-  - { key: Key5,     mods: Alt,     chars: "∞"                           }
-  - { key: Key6,     mods: Alt,     chars: "§"                           }
-  - { key: Key7,     mods: Alt,     chars: "¶"                           }
-  - { key: Key8,     mods: Alt,     chars: "•"                           }
-  - { key: Key9,     mods: Alt,     chars: "ª"                           }
+  - { key: Key6,        mods: Control, chars: "\x1e"                     }
+  # - { key: Up,       mods: Alt,     chars: "\x1b[1;5A"                   }
+  # - { key: Down,     mods: Alt,     chars: "\x1b[1;5B"                   }
+  # - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
+  # - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
+  # - { key: Key0,     mods: Alt,     chars: "º"                           }
+  # - { key: Key1,     mods: Alt,     chars: "¡"                           }
+  # - { key: Key2,     mods: Alt,     chars: "€"                           }
+  # - { key: Key3,     mods: Alt,     chars: "#"                           }
+  # - { key: Key4,     mods: Alt,     chars: "¢"                           }
+  # - { key: Key5,     mods: Alt,     chars: "∞"                           }
+  # - { key: Key6,     mods: Alt,     chars: "§"                           }
+  # - { key: Key7,     mods: Alt,     chars: "¶"                           }
+  # - { key: Key8,     mods: Alt,     chars: "•"                           }
+  # - { key: Key9,     mods: Alt,     chars: "ª"                           }
   # - { key: F11, mods: Shift, action: Maximized }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
