@@ -650,7 +650,7 @@ nmap <C-l> <C-W><C-L>
 " => Autocmd.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Resize panes when window/terminal gets resize
-"autocmd VimResized * :wincmd =
+autocmd VimResized * :wincmd =
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
