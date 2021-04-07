@@ -104,17 +104,17 @@ window:
 # Font configuration
 font:
   # Normal (roman) font face
-  #normal:
+  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: monospace
+    family: FiraCode Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    style: Regular
 
   # Bold font face
   #bold:
@@ -150,7 +150,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 16.0
+  size: 20.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -399,7 +399,7 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.94
+background_opacity: 1
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -743,6 +743,26 @@ background_opacity: 0.94
 key_bindings:
   - { key: F11, action: ToggleFullscreen }
   - { key: N, mods: Shift|Control, action: SpawnNewInstance }
+
+    # Mac shit
+  - { key: J,        mods: Alt,     chars: "\x1bj"                       }
+  - { key: K,        mods: Alt,     chars: "\x1bk"                       }
+  - { key: H,        mods: Alt,     chars: "\x1bh"                       }
+  - { key: L,        mods: Alt,     chars: "\x1bl"                       }
+  - { key: Up,       mods: Alt,     chars: "\x1b[1;5A"                   }
+  - { key: Down,     mods: Alt,     chars: "\x1b[1;5B"                   }
+  - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
+  - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
+  - { key: Key0,     mods: Alt,     chars: "º"                           }
+  - { key: Key1,     mods: Alt,     chars: "¡"                           }
+  - { key: Key2,     mods: Alt,     chars: "€"                           }
+  - { key: Key3,     mods: Alt,     chars: "#"                           }
+  - { key: Key4,     mods: Alt,     chars: "¢"                           }
+  - { key: Key5,     mods: Alt,     chars: "∞"                           }
+  - { key: Key6,     mods: Alt,     chars: "§"                           }
+  - { key: Key7,     mods: Alt,     chars: "¶"                           }
+  - { key: Key8,     mods: Alt,     chars: "•"                           }
+  - { key: Key9,     mods: Alt,     chars: "ª"                           }
   # - { key: F11, mods: Shift, action: Maximized }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }

@@ -698,7 +698,8 @@ set synmaxcol=500
 source ~/.vimrc_specific
 
 
-hi Normal guibg=NONE ctermbg=NONE
+" For transparent term
+" hi Normal guibg=NONE ctermbg=NONE
 "------------Notes and Tips------------" 
 
 "_______ Searching_______
