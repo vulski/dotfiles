@@ -29,6 +29,10 @@ then
     rm -rf ~/.vim
     ln -s ${PWD}/vim ~/.vim
 
+    # hammerspoon
+    rm -rf ~/.hammerspoon
+    ln -s ${PWD}/hammerspoon ~/.hammerspoon
+
     touch ~/.secrets
     touch ~/.vimrc_specific
     echo "Puts secrets in ~/.secrets"
