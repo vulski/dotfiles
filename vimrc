@@ -18,18 +18,15 @@ let mapleader = ','
 " => Dependencies
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 call plug#begin('~/.local/share/nvim/plugged') 
-"Plug 'SirVer/ultisnips'
-"let g:UltiSnipsExpandTrigger = "<Nop>"
-"let g:UltiSnipsListSnippets = "<Nop>"
 
 Plug 'baverman/vial'
 Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
 
 " Languages, snippets
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-test/vim-test'
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
@@ -104,13 +101,6 @@ hi link VimwikiHeader1 GruvboxYellowBold
 hi link VimwikiHeader3 GruvboxAquaBold
 let g:vimwiki_list = [{'auto_tags': 1}]
 
-Plug 'ludovicchabant/vim-gutentags' 
-let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.json', '*.xml',
-                            \ '*.phar', '*.ini', '*.rst', '*.md',
-                            \ '*vendor/*/test*', '*vendor/*/Test*',
-                            \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
-                            \ '*var/cache*', '*var/log*']
-
 " This causes a lot of lag while NERDTree is open
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 let g:NERDTreeSyntaxDisableDefaultExtensions = 1
@@ -131,7 +121,7 @@ call plug#end()
 set nocompatible                                    
 filetype plugin on
 
-" Marks should go to the column, not just the line. Why isn't this the de
+" Marks should go to the column, not just the line. Why isn't this the default?
 nnoremap ' ` 
 set complete=.,w,b,u,t,i,kspell "Set our desired autocompletion matching
 
@@ -144,9 +134,6 @@ set shortmess+=A            " Don't bother me when a swapfile exists
 set t_vb= " Remove code to flash screen
 set tm=500 " Timeout length
 set backspace=indent,eol,start " Allow backspace beyond insertion point
-set backspace=indent,eol,start " Allow backspace beyond insertion point
-set infercase               " Completion recognizes capitalization
-
 set autoread
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -154,9 +141,9 @@ set autoread
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " if hidden is not set, TextEdit might fail.
 set hidden 
-" Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup 
+set noswapfile 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=100 
 " don't give |ins-completion-menu| messages.
@@ -300,9 +287,6 @@ command! Gqf GitGutterQuickFix | copen
 nmap \r :!tmux send-keys -t bottom C-p C-j <CR><CR>
 nmap \z :e! %<CR>
 
-" Auto change directory to match current file ,cd
-" nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR> 
-
 " Move lines up and down with ctrl-alt+j,k
 nnoremap <C-A-j> :m .+1<CR>==
 nnoremap <C-A-k> :m .-2<CR>==
@@ -318,12 +302,6 @@ vnoremap <C-Q>     <esc>
 " nnoremap <Leader>q :q<cr>
 nnoremap <Leader>Q :qa!<cr>
 
-
-" jk | Escaping!
-" inoremap jk <Esc>
-" xnoremap jk <Esc>
-" cnoremap jk <C-c>
-
 " Zoom
 function! s:zoom()
   if winnr('$') > 1
@@ -338,72 +316,14 @@ nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 " qq to record, Q to replay
 nnoremap Q @q
 
-
 " Quickfix
 nnoremap ]q :cnext<cr>zz
 nnoremap [q :cprev<cr>zz
 nnoremap ]l :lnext<cr>zz
 nnoremap [l :lprev<cr>zz
 
-" <tab> / <s-tab> | Circular windows navigation
-" nnoremap <tab>   <c-w>w
-" nnoremap <S-tab> <c-w>W
-
-nnoremap <leader>c :cclose<bar>lclose<cr>
-
 " #!! | Shebang
 inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
-
-" ----------------------------------------------------------------------------
-" <F5> / <F6> | Run script
-" ----------------------------------------------------------------------------
-function! s:run_this_script(output)
-  let head   = getline(1)
-  let pos    = stridx(head, '#!')
-  let file   = expand('%:p')
-  let ofile  = tempname()
-  let rdr    = " 2>&1 | tee ".ofile
-  let win    = winnr()
-  let prefix = a:output ? 'silent !' : '!'
-  " Shebang found
-  if pos != -1
-    execute prefix.strpart(head, pos + 2).' '.file.rdr
-  " Shebang not found but executable
-  elseif executable(file)
-    execute prefix.file.rdr
-  elseif &filetype == 'ruby'
-    execute prefix.'/usr/bin/env ruby '.file.rdr
-  elseif &filetype == 'tex'
-    execute prefix.'latex '.file. '; [ $? -eq 0 ] && xdvi '. expand('%:r').rdr
-  elseif &filetype == 'dot'
-    let svg = expand('%:r') . '.svg'
-    let png = expand('%:r') . '.png'
-    " librsvg >> imagemagick + ghostscript
-    execute 'silent !dot -Tsvg '.file.' -o '.svg.' && '
-          \ 'rsvg-convert -z 2 '.svg.' > '.png.' && open '.png.rdr
-  else
-    return
-  end
-  redraw!
-  if !a:output | return | endif
-
-  " Scratch buffer
-  if exists('s:vim_exec_buf') && bufexists(s:vim_exec_buf)
-    execute bufwinnr(s:vim_exec_buf).'wincmd w'
-    %d
-  else
-    silent!  bdelete [vim-exec-output]
-    silent!  vertical botright split new
-    silent!  file [vim-exec-output]
-    setlocal buftype=nofile bufhidden=wipe noswapfile
-    let      s:vim_exec_buf = winnr()
-  endif
-  execute 'silent! read' ofile
-  normal! gg"_dd
-  execute win.'wincmd w'
-endfunction
-" nnoremap <silent> <F5> :call <SID>run_this_script(0)<cr>
-nnoremap <silent> <F6> :call <SID>run_this_script(1)<cr>
 
 " <F8> | Color scheme selector
 function! s:colors(...)
@@ -438,25 +358,7 @@ endfunction
 command! -range Shuffle <line1>,<line2>call s:shuffle()
 
 
-" ----------------------------------------------------------------------------
-" <Leader>?/! | Google it / Feeling lucky
-" ----------------------------------------------------------------------------
-function! s:goog(pat, lucky)
-  let q = '"'.substitute(a:pat, '["\n]', ' ', 'g').'"'
-  let q = substitute(q, '[[:punct:] ]',
-       \ '\=printf("%%%02X", char2nr(submatch(0)))', 'g')
-  call system(printf('xdg-open "https://www.duckduckgo.com/?%sq=%s"',
-                   \ a:lucky ? 'btnI&' : '', q))
-endfunction
-
-nnoremap <leader>? :call <SID>goog(expand("<cWORD>"), 0)<cr>
-nnoremap <leader>! :call <SID>goog(expand("<cWORD>"), 1)<cr>
-xnoremap <leader>? "gy:call <SID>goog(@g, 0)<cr>gv
-xnoremap <leader>! "gy:call <SID>goog(@g, 1)<cr>gv
-
-" ----------------------------------------------------------------------------
-" call LSD()
-" ----------------------------------------------------------------------------
+" AHAAHAHAAHA
 function! LSD()
   syntax clear
 
@@ -567,16 +469,22 @@ map <F7> gg=G<C-o><C-o>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+syntax enable 
 colorscheme gruvbox
 set background=dark
+let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic=1
+let g:gruvbox_invert_selection='0'
+
+" For transparent term
+" hi Normal guibg=NONE ctermbg=NONE
 
 " True color stuff
 if !has('gui_running')
   set t_Co=256
 endif
 
-syntax enable 
+" Highlight TODO: 
 syn keyword   cTodo   contained    TODO FIXME XXX
 augroup vimrc_todo
     au!
@@ -584,12 +492,6 @@ augroup vimrc_todo
           \ containedin=.*Comment,vimCommentTitle
 augroup END
 hi def link MyTodo Todo
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set nobackup
-"set nowb
-"set noswapfile 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers.
@@ -597,10 +499,6 @@ hi def link MyTodo Todo
 set hlsearch
 set incsearch
 highlight Search cterm=underline
-
-if executable('ag')
-      let g:ackprg = 'ag --vimgrep'
-endif 
 
 " Make it easier to move through wrapped lines.
 nnoremap j gj
@@ -664,42 +562,15 @@ augroup autosourcing
     autocmd BufWritePost .vimrc source %
 augroup END
 
-
-cabbrev help tab help
-
-" " Help in new tabs
-" function! s:helptab()
-"   if &buftype == 'help'
-"     wincmd T
-"     nnoremap <buffer> q :q<cr>
-"   endif
-" endfunction
-" autocmd vimrc BufEnter *.txt call s:helptab()
-
 " Remember info about open buffers on close
 "Disabled because it's annoying when you have multiple open sessions
 "set viminfo^=% 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-" Disable annoying beeps and bells.
-set visualbell 
-set noerrorbells
-
-" Speedy terminal
-set ttyfast
-set notimeout
-set ttimeout
-set ttimeoutlen=100
-syntax sync minlines=256
-set synmaxcol=500
-
 " An additional vimrc settings file specific to the machine i'm working on.
 source ~/.vimrc_specific
 
-
-" For transparent term
-" hi Normal guibg=NONE ctermbg=NONE
 "------------Notes and Tips------------" 
 
 "_______ Searching_______
