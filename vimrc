@@ -429,7 +429,6 @@ function! s:todo() abort
 endfunction
 command! Todo call s:todo()
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -452,8 +451,7 @@ set softtabstop=4
 set copyindent 
 set smarttab 
 set lbr
-"set textwidth=500
-set ignorecase              " Case insensitive
+" set ignorecase              " Case insensitive
 set infercase               " Completion recognizes capitalization
 set linebreak               " Break long lines by word, not char 
 set wrap
@@ -470,14 +468,15 @@ map <F7> gg=G<C-o><C-o>
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 syntax enable 
-colorscheme gruvbox
-set background=dark
+
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic=1
 let g:gruvbox_invert_selection='0'
+colorscheme gruvbox
+set background=dark
 
 " For transparent term
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " True color stuff
 if !has('gui_running')
@@ -498,7 +497,7 @@ hi def link MyTodo Todo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 set hlsearch
 set incsearch
-highlight Search cterm=underline
+" highlight Search cterm=underline
 
 " Make it easier to move through wrapped lines.
 nnoremap j gj
@@ -532,7 +531,6 @@ nmap <C-p> :bprev<CR>
 
 " Automatically write the file when switching buffers.
 set autowriteall 
-"set scroll=10  
 
 " More natural split opening
 set splitbelow
@@ -565,6 +563,7 @@ augroup END
 " Remember info about open buffers on close
 "Disabled because it's annoying when you have multiple open sessions
 "set viminfo^=% 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
