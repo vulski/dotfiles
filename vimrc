@@ -86,7 +86,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdtree'
 nmap \F :NERDTreeFind 
 nmap \e :NERDTreeToggle<CR><C-w>=
-let NERDTreeHijackNetrw = 0
+let NERDTreeHijackNetrw = 1
 let NERDTreeShowHidden = 1
 
 Plug 'mattn/calendar-vim'
