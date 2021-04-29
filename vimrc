@@ -23,6 +23,11 @@ Plug 'baverman/vial'
 Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
 
+" GHEH
+Plug 'christoomey/vim-tmux-navigator'
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Languages, snippets
@@ -42,11 +47,12 @@ endif
 Plug 'fatih/vim-go'
 
 " Plug 'rust-lang/rust.vim'
-" let g:rustfmt_autosave = 1
+" let g:rustfmt_autosave = 0
 
 " Editing
 Plug 'tpope/vim-commentary'
 nmap <C-_> gcc
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tpope/vim-unimpaired' 
 Plug 'Yggdroot/indentLine' " Show line indenations 
@@ -56,10 +62,14 @@ Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 0 "0 is default
 
 " Visuals
-Plug 'airblade/vim-gitgutter' " Shows git diff for the current file.  
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter' 
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
+
+Plug 'vim-airline/vim-airline'        " status bar
+Plug 'vim-airline/vim-airline-themes' " status bar themes
 
 Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
@@ -87,7 +97,7 @@ Plug 'scrooloose/nerdtree'
 nmap \F :NERDTreeFind 
 nmap \e :NERDTreeToggle<CR><C-w>=
 let NERDTreeHijackNetrw = 1
-let NERDTreeShowHidden = 1
+let NERDTreeShowHidden = 0
 
 Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki' 
@@ -541,6 +551,14 @@ nmap <C-j> <C-W><C-J>
 nmap <C-k> <C-W><C-K>
 nmap <C-h> <C-W><C-H>
 nmap <C-l> <C-W><C-L>
+
+" This disables the above for use with tmux
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocmd.
