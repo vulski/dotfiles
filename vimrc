@@ -166,7 +166,7 @@ inoremap <silent> <F5> <C-R>=strftime("%m/%d/%y %H:%M:%S")<CR>
 
 " CoC 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph', 'coc-emoji', 'coc-tsserver', 'coc-rls']
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-solargraph', 'coc-emoji', 'coc-tsserver', 'coc-rls', 'coc-pyright']
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
