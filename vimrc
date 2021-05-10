@@ -40,7 +40,7 @@ nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 let test#strategy = "neovim"
 if has('nvim')
-  tmap <C-o> <C-\><C-n>
+    tmap <C-o> <C-\><C-n>
 endif
 
 " Go.
@@ -191,11 +191,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
@@ -209,11 +209,11 @@ nmap <A-r> <Plug>(coc-rename)
 "nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -266,15 +266,15 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -314,12 +314,12 @@ nnoremap <Leader>Q :qa!<cr>
 
 " Zoom
 function! s:zoom()
-  if winnr('$') > 1
-    tab split
-  elseif len(filter(map(range(tabpagenr('$')), 'tabpagebuflist(v:val + 1)'),
-                  \ 'index(v:val, '.bufnr('').') >= 0')) > 1
-    tabclose
-  endif
+    if winnr('$') > 1
+        tab split
+    elseif len(filter(map(range(tabpagenr('$')), 'tabpagebuflist(v:val + 1)'),
+                \ 'index(v:val, '.bufnr('').') >= 0')) > 1
+        tabclose
+    endif
 endfunction
 nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 
@@ -337,32 +337,32 @@ inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype
 
 " <F8> | Color scheme selector
 function! s:colors(...)
-  return filter(map(filter(split(globpath(&rtp, 'colors/*.vim'), "\n"),
-        \                  'v:val !~ "^/usr/"'),
-        \           'fnamemodify(v:val, ":t:r")'),
-        \       '!a:0 || stridx(v:val, a:1) >= 0')
+    return filter(map(filter(split(globpath(&rtp, 'colors/*.vim'), "\n"),
+                \                  'v:val !~ "^/usr/"'),
+                \           'fnamemodify(v:val, ":t:r")'),
+                \       '!a:0 || stridx(v:val, a:1) >= 0')
 endfunction
 
 function! s:rotate_colors()
-  if !exists('s:colors')
-    let s:colors = s:colors()
-  endif
-  let name = remove(s:colors, 0)
-  call add(s:colors, name)
-  execute 'colorscheme' name
-  redraw
-  echo name
+    if !exists('s:colors')
+        let s:colors = s:colors()
+    endif
+    let name = remove(s:colors, 0)
+    call add(s:colors, name)
+    execute 'colorscheme' name
+    redraw
+    echo name
 endfunction
 nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
 
 " XXX: Check this out later
 " :Shuffle | Shuffle selected lines
 function! s:shuffle() range
-ruby << RB
-  first, last = %w[a:firstline a:lastline].map { |e| VIM::evaluate(e).to_i }
-  (first..last).map { |l| $curbuf[l] }.shuffle.each_with_index do |line, i|
+    ruby << RB
+    first, last = %w[a:firstline a:lastline].map { |e| VIM::evaluate(e).to_i }
+    (first..last).map { |l| $curbuf[l] }.shuffle.each_with_index do |line, i|
     $curbuf[first + i] = line
-  end
+end
 RB
 endfunction
 command! -range Shuffle <line1>,<line2>call s:shuffle()
@@ -370,48 +370,48 @@ command! -range Shuffle <line1>,<line2>call s:shuffle()
 
 " AHAAHAHAAHA
 function! LSD()
-  syntax clear
+    syntax clear
 
-  for i in range(16, 255)
-    execute printf('highlight LSD%s ctermfg=%s', i - 16, i)
-  endfor
+    for i in range(16, 255)
+        execute printf('highlight LSD%s ctermfg=%s', i - 16, i)
+    endfor
 
-  let block = 4
-  for l in range(1, line('$'))
-    let c = 1
-    let max = len(getline(l))
-    while c < max
-      let stride = 4 + reltime()[1] % 8
-      execute printf('syntax region lsd%s_%s start=/\%%%sl\%%%sc/ end=/\%%%sl\%%%sc/ contains=ALL', l, c, l, c, l, min([c + stride, max]))
-      let rand = abs(reltime()[1] % (256 - 16))
-      execute printf('hi def link lsd%s_%s LSD%s', l, c, rand)
-      let c += stride
-    endwhile
-  endfor
+    let block = 4
+    for l in range(1, line('$'))
+        let c = 1
+        let max = len(getline(l))
+        while c < max
+            let stride = 4 + reltime()[1] % 8
+            execute printf('syntax region lsd%s_%s start=/\%%%sl\%%%sc/ end=/\%%%sl\%%%sc/ contains=ALL', l, c, l, c, l, min([c + stride, max]))
+            let rand = abs(reltime()[1] % (256 - 16))
+            execute printf('hi def link lsd%s_%s LSD%s', l, c, rand)
+            let c += stride
+        endwhile
+    endfor
 endfunction
 
 " ----------------------------------------------------------------------------
 " :A
 " ----------------------------------------------------------------------------
 function! s:a(cmd)
-  let name = expand('%:r')
-  let ext = tolower(expand('%:e'))
-  let sources = ['c', 'cc', 'cpp', 'cxx']
-  let headers = ['h', 'hh', 'hpp', 'hxx']
-  for pair in [[sources, headers], [headers, sources]]
-    let [set1, set2] = pair
-    if index(set1, ext) >= 0
-      for h in set2
-        let aname = name.'.'.h
-        for a in [aname, toupper(aname)]
-          if filereadable(a)
-            execute a:cmd a
-            return
-          end
-        endfor
-      endfor
-    endif
-  endfor
+    let name = expand('%:r')
+    let ext = tolower(expand('%:e'))
+    let sources = ['c', 'cc', 'cpp', 'cxx']
+    let headers = ['h', 'hh', 'hpp', 'hxx']
+    for pair in [[sources, headers], [headers, sources]]
+        let [set1, set2] = pair
+        if index(set1, ext) >= 0
+            for h in set2
+                let aname = name.'.'.h
+                for a in [aname, toupper(aname)]
+                    if filereadable(a)
+                        execute a:cmd a
+                        return
+                    end
+                endfor
+            endfor
+        endif
+    endfor
 endfunction
 command! A call s:a('e')
 command! AV call s:a('botright vertical split')
@@ -420,22 +420,22 @@ command! AV call s:a('botright vertical split')
 " Todo
 " ----------------------------------------------------------------------------
 function! s:todo() abort
-  let entries = []
-  for cmd in ['git grep -niI -e TODO -e FIXME -e XXX 2> /dev/null',
-            \ 'grep -rniI -e TODO -e FIXME -e XXX * 2> /dev/null']
-    let lines = split(system(cmd), '\n')
-    if v:shell_error != 0 | continue | endif
-    for line in lines
-      let [fname, lno, text] = matchlist(line, '^\([^:]*\):\([^:]*\):\(.*\)')[1:3]
-      call add(entries, { 'filename': fname, 'lnum': lno, 'text': text })
+    let entries = []
+    for cmd in ['git grep -niI -e TODO -e FIXME -e XXX 2> /dev/null',
+                \ 'grep -rniI -e TODO -e FIXME -e XXX * 2> /dev/null']
+        let lines = split(system(cmd), '\n')
+        if v:shell_error != 0 | continue | endif
+        for line in lines
+            let [fname, lno, text] = matchlist(line, '^\([^:]*\):\([^:]*\):\(.*\)')[1:3]
+            call add(entries, { 'filename': fname, 'lnum': lno, 'text': text })
+        endfor
+        break
     endfor
-    break
-  endfor
 
-  if !empty(entries)
-    call setqflist(entries)
-    copen
-  endif
+    if !empty(entries)
+        call setqflist(entries)
+        copen
+    endif
 endfunction
 command! Todo call s:todo()
 
@@ -479,18 +479,17 @@ map <F7> gg=G<C-o><C-o>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 syntax enable 
 
-let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic=1
 let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
 set background=dark
 
 " For transparent term
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " True color stuff
 if !has('gui_running')
-  set t_Co=256
+    set t_Co=256
 endif
 
 " Highlight TODO: 
@@ -498,7 +497,7 @@ syn keyword   cTodo   contained    TODO FIXME XXX
 augroup vimrc_todo
     au!
     au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX|IDEA|TODOs|TODOS):/
-          \ containedin=.*Comment,vimCommentTitle
+                \ containedin=.*Comment,vimCommentTitle
 augroup END
 hi def link MyTodo Todo
 
@@ -568,9 +567,9 @@ autocmd VimResized * :wincmd =
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif 
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif 
 
 "Automatically source the Vimrc file on save."
 augroup autosourcing
