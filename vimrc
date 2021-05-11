@@ -100,7 +100,7 @@ Plug 'scrooloose/nerdtree'
 nmap \F :NERDTreeFind 
 nmap \e :NERDTreeToggle<CR><C-w>=
 let NERDTreeHijackNetrw = 1
-let NERDTreeShowHidden = 0
+let NERDTreeShowHidden = 1
 
 Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki' 

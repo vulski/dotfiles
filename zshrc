@@ -30,7 +30,7 @@ if [ -d "/home/linuxbrew/.linuxbrew/bin/brew shellenv" ]; then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) 
 fi
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --no-ignore-vcs --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
