@@ -26,5 +26,6 @@
     "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "es5",
-    "prettier.semi": false
+    "prettier.semi": false,
+    "coc.source.emoji.filetypes": null
 }
