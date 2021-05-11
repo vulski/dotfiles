@@ -759,6 +759,7 @@ key_bindings:
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
   - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
   - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
+  - { key: Slash,   mods: Control,       chars: "\x1f"                 }
   # - { key: Return,   mods: Shift,   chars: "\x1b[13;2u" }
   # - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
   # - { key: Up,       mods: Alt,     chars: "\x1b[1;5A"                   }

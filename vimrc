@@ -52,6 +52,8 @@ Plug 'fatih/vim-go'
 " Editing
 Plug 'tpope/vim-commentary'
 nmap <C-_> gcc
+vmap <C-_> gc
+
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tpope/vim-unimpaired' 
