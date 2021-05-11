@@ -1,0 +1,15 @@
+--recurse=yes
+--exclude=.git
+--exclude=node_modules
+--exclude=vendor
+--exclude=build
+--exclude=*.json
+--exclude=*.yml
+--exclude=*.yaml
+--exclude=*.md
+--exclude=*.txt
+--exclude=*.html
+--exclude=*.spec.js
+
+--langmap=JavaScript:.js.jsx
+--langmap=TypeScript:.ts.tsx
