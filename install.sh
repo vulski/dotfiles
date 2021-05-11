@@ -33,6 +33,10 @@ then
     rm -rf ~/.hammerspoon
     ln -s ${PWD}/hammerspoon ~/.hammerspoon
 
+    # ctags.d
+    rm -rf ~/.ctags.d
+    ln -s ${PWD}/ctags.d ~/.ctags.d
+
     touch ~/.secrets
     touch ~/.vimrc_specific
     echo "Puts secrets in ~/.secrets"

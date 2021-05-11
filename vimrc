@@ -27,6 +27,7 @@ nmap <leader><cr> :VialHttp<cr>
 Plug 'christoomey/vim-tmux-navigator'
 " Disable tmux navigator when zooming the Vim pane
 " let g:tmux_navigator_disable_when_zoomed = 1
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

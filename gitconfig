@@ -5,3 +5,5 @@
 	excludesfile = /home/vulski/.gitignore_global
 [pull]
 	rebase = false
+[url "https://e465f12231495b43ea37913918121032ea2ecf88:x-oauth-basic@github.com/"]
+	insteadOf = https://github.com/

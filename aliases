@@ -38,10 +38,6 @@ alias p='phpunit'
 alias pf='phpunit --filter '
 alias phpunit='php vendor/bin/phpunit'
 
-# PHP specific ctags settings.
-alias ctagsp="ctags -R --fields=+aimlS --languages=php"
-alias phpctags="php ~/bin/phpctags ."
-
 # PHP 
 alias cmp='composer'
 alias cmpd='composer dump'

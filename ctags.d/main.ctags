@@ -1,0 +1,6 @@
+--exclude=.git
+--exclude=node_modules
+--exclude=storage/*
+--exclude=.idea/*
+--exclude=*.css
+--recurse
