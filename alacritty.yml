@@ -752,17 +752,14 @@ key_bindings:
   - { key: R,        mods: Alt,     chars: "\x1br"                       }
   - { key: Key6,     mods: Control, chars: "\x1e"                        }
   - { key: Q,        mods: Control, chars: "\x11"                        }
-  - { key: Key9,        mods: Control, chars: "\x11"                        }
-  - { key: Space,     mods: Alt,          chars: " "                     }
-  - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+  - { key: Key9,     mods: Control, chars: "\x11"                        }
+  - { key: Space,    mods: Alt,     chars: " "                           }
+  - { key: Back,     mods: Super,   chars: "\x15"                        } # delete word/line
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
   - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
   - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
-  - { key: Slash,   mods: Control,       chars: "\x1f"                 }
-  # - { key: Return,   mods: Shift,   chars: "\x1b[13;2u" }
-  # - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
-  # - { key: Up,       mods: Alt,     chars: "\x1b[1;5A"                   }
+  - { key: Slash,    mods: Control, chars: "\x1f"                        }
   # - { key: Down,     mods: Alt,     chars: "\x1b[1;5B"                   }
   # - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
   # - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
