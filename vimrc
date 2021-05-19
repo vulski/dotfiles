@@ -164,6 +164,10 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes 
 
+
+nnoremap <silent> <F4> gggqG
+nnoremap <silent> <F4> gggqG
+inoremap <silent> <F4> <C-R>=strftime("%m/%d/%y %H:%M:%S")<CR>
 nnoremap <silent> <F5> "=strftime("%m/%d/%y %H:%M:%S")<CR>P
 inoremap <silent> <F5> <C-R>=strftime("%m/%d/%y %H:%M:%S")<CR>
 
@@ -512,8 +516,8 @@ set incsearch
 " highlight Search cterm=underline
 
 " Make it easier to move through wrapped lines.
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 nnoremap <C-w>+ 10<C-w>+
 nnoremap <C-w>- 10<C-w>- 
