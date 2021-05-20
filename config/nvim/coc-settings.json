@@ -27,5 +27,6 @@
     "prettier.singleQuote": true,
     "prettier.trailingComma": "es5",
     "prettier.semi": false,
-    "coc.source.emoji.filetypes": null
+    "coc.source.emoji.filetypes": null,
+    "html.autoClosingTags": true
 }

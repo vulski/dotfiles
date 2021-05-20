@@ -54,6 +54,8 @@ Plug 'fatih/vim-go'
 Plug 'tpope/vim-commentary'
 nmap <C-_> gcc
 vmap <C-_> gc
+"Plug 'alvan/vim-closetag'
+
 
 Plug 'editorconfig/editorconfig-vim'
 
