@@ -475,12 +475,18 @@ set lbr
 set infercase               " Completion recognizes capitalization
 set linebreak               " Break long lines by word, not char 
 set nowrap
+set textwidth=88
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=syntax
 nnoremap <space> za
 vnoremap <space> zf 
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 map <F7> gg=G<C-o><C-o>
 
