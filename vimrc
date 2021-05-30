@@ -23,12 +23,6 @@ Plug 'baverman/vial'
 Plug 'baverman/vial-http'
 nmap <leader><cr> :VialHttp<cr>
 
-" GHEH
-Plug 'christoomey/vim-tmux-navigator'
-" Disable tmux navigator when zooming the Vim pane
-" let g:tmux_navigator_disable_when_zoomed = 1
-Plug 'ludovicchabant/vim-gutentags'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Languages, snippets
@@ -150,6 +144,7 @@ set t_vb= " Remove code to flash screen
 set tm=500 " Timeout length
 set backspace=indent,eol,start " Allow backspace beyond insertion point
 set autoread
+set undofile
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntax, Language specific, auto completion.
@@ -165,7 +160,6 @@ set updatetime=100
 set shortmess+=c 
 " always show signcolumns
 set signcolumn=yes 
-
 
 nnoremap <silent> <F4> gggqG
 nnoremap <silent> <F4> gggqG
@@ -298,6 +292,13 @@ xnoremap < <gv
 nmap <Leader>ev :tabnew ~/.vimrc<cr> 
 nmap <Leader>es :e ~/.vim/snippets/
 nmap <Leader><space> :nohlsearch<cr>
+
+cmap w!! %!sudo tee > /dev/null %
+
+" Maintain the cursor position when yanking a visual selection
+" http://ddrscott.github.io/blog/2016/yank-without-jank/
+vnoremap y myy`y
+vnoremap Y myY`y
 
 nmap \x :cclose<cr>
 nmap \g :GitGutterToggle<CR>
@@ -461,6 +462,7 @@ map <leader>ss :setlocal spell!<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ignorecase              " Case insensitive
 set smartcase               " Lets you search for ALL CAPS 
 set autoindent              " Auto indents new lines.
 set expandtab 
@@ -470,10 +472,9 @@ set softtabstop=4
 set copyindent 
 set smarttab 
 set lbr
-" set ignorecase              " Case insensitive
 set infercase               " Completion recognizes capitalization
 set linebreak               " Break long lines by word, not char 
-set wrap
+set nowrap
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
@@ -487,12 +488,13 @@ map <F7> gg=G<C-o><C-o>
 " => Colors, Visuals, and Fonts.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 syntax enable 
+set termguicolors
 
 let g:gruvbox_italic=1
-let g:gruvbox_invert_selection='0'
+let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark = 'medium'
 colorscheme gruvbox
 set background=dark
-
 " For transparent term
 "hi Normal guibg=NONE ctermbg=NONE
 
@@ -560,14 +562,6 @@ nmap <C-k> <C-W><C-K>
 nmap <C-h> <C-W><C-H>
 nmap <C-l> <C-W><C-L>
 
-" This disables the above for use with tmux
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocmd.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -590,7 +584,7 @@ augroup END
 "Disabled because it's annoying when you have multiple open sessions
 "set viminfo^=% 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " An additional vimrc settings file specific to the machine i'm working on.
